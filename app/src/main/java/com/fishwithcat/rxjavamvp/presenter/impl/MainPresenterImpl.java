@@ -23,7 +23,7 @@ public class MainPresenterImpl extends BasePresenter<IMainView> implements IMain
 
     @Override
     public void fetchArtical() {
-        ArticalApi.
+
     }
 
     @Override

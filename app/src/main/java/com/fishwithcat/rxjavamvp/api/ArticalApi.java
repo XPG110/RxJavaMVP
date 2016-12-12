@@ -6,7 +6,25 @@ package com.fishwithcat.rxjavamvp.api;
 
 public class ArticalApi extends BaseApi{
 
-    public void fetchArtical(DataListener listener){
 
+    private ArticalApi(){
+
+    }
+
+    @Override
+    protected void initData() {
+        super.initData();
+
+    }
+
+    public static ArticalApi getInstance(){
+        return SingletonHolder.instance;
+    }
+
+    private static class SingletonHolder{
+        public static ArticalApi instance=new ArticalApi();
+    }
+
+    public void fetchArtical(DataListener listener){
     }
 }
