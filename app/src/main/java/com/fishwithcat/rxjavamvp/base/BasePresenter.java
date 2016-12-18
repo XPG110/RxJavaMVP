@@ -4,28 +4,54 @@ import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
 
 /**
- * Created by Administrator on 2016/12/6.
+ * Created by Administrator on 2016/12/18.
  */
 
-public abstract class BasePresenter<T> {
-    protected Reference<T> mViewRef;
+public class BasePresenter<T> implements LoadDataView{
+
+    public Reference<T> viewRef;
 
     public void attachView(T view){
-        mViewRef=new WeakReference<T>(view);
-    }
-
-    protected T getView(){
-        return mViewRef.get();
+        viewRef=new WeakReference<T>(view);
     }
 
     public boolean isViewAttached(){
-        return mViewRef!=null&&mViewRef.get()!=null;
+        return viewRef!=null&&viewRef.get()!=null;
+    }
+
+    public T getView(){
+        return viewRef.get();
     }
 
     public void detachView(){
-        if(mViewRef!=null){
-            mViewRef.clear();
-            mViewRef=null;
+        if(viewRef!=null){
+            viewRef.clear();
+            viewRef=null;
         }
+    }
+
+    @Override
+    public void showLoadView() {
+
+    }
+
+    @Override
+    public void hideLoadView() {
+
+    }
+
+    @Override
+    public void showEmptyView() {
+
+    }
+
+    @Override
+    public void showErrorView() {
+
+    }
+
+    @Override
+    public void showNetWorkView() {
+
     }
 }

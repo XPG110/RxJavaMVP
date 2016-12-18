@@ -1,14 +1,16 @@
 package com.fishwithcat.rxjavamvp.api;
 
+import com.fishwithcat.rxjavamvp.model.BaseResponse;
+
 /**
- * Created by Administrator on 2016/12/7.
+ * Created by Administrator on 2016/12/18.
  */
 
-public interface DataListener {
+public interface DataListener<T> {
 
-    void onSuccess();
+    void onSuccess(T response);
 
-    void onFail();
+    void onDefeate();
 
     void onCancel();
 }
