@@ -1,12 +1,13 @@
-package com.fishwithcat.rxjavamvp.api;
-
+package com.fishwithcat.rxjavamvp.model;
 
 /**
- * Created by Administrator on 2016/12/18.
+ * @Date 创建时间: 2017/1/18
+ * @Author: Administrator
+ * @Description:
+ * @Version
  */
 
-public interface DataListener<T> {
-
+public interface CallBack<T> {
     /**
      * 数据读取成功
      * @param response
@@ -17,9 +18,4 @@ public interface DataListener<T> {
      * 数据读取失败
      */
     void onFail();
-
-    /**
-     * 取消
-     */
-    void onCancel();
 }

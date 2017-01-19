@@ -1,13 +1,21 @@
 package com.fishwithcat.rxjavamvp.api;
 
+import com.fishwithcat.rxjavamvp.api.apiservice.BaseApi;
+import com.fishwithcat.rxjavamvp.api.apiservice.GoodDetailsService;
+import com.fishwithcat.rxjavamvp.bean.GoodDetailEntity;
+
 /**
  * Created by Administrator on 2016/12/18.
  */
 
-public class GoodDetailsApi {
+public class GoodDetailsApi extends BaseApi<GoodDetailEntity>{
+
+    GoodDetailsService service;
 
     private GoodDetailsApi(){
-
+        super();
+        service= ApiConfig.ISTEST?ApiConfig.getInstance().getRetrofit().create(GoodDetailsService.class)
+                :ApiConfig.getInstance().getRetrofit("").create(GoodDetailsService.class);
     }
 
     public static GoodDetailsApi getInstance(){
@@ -19,6 +27,21 @@ public class GoodDetailsApi {
     }
 
     public void getGoodDetailsData(DataListener dataListener){
+        request(service.getGoodDetailsData(), new Splice<GoodDetailEntity>() {
+            @Override
+            public void onNext(GoodDetailEntity goodDetailEntity) {
 
+            }
+
+            @Override
+            public void onError() {
+
+            }
+
+            @Override
+            public void onCancel() {
+
+            }
+        });
     }
 }

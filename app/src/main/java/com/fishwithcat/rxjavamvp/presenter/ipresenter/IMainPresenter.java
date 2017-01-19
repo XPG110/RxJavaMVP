@@ -11,4 +11,5 @@ public interface IMainPresenter {
      */
     void getGoodsDetail();
 
+    void getGoods();
 }

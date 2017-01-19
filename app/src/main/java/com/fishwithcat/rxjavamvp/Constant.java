@@ -9,5 +9,5 @@ public class Constant {
 
     public static String TEST_URL="";
 
-
+    public static int CODE_SUCCESS = 0;
 }

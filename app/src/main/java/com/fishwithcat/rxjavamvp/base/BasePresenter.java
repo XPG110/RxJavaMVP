@@ -1,57 +1,36 @@
 package com.fishwithcat.rxjavamvp.base;
 
-import java.lang.ref.Reference;
+import android.view.View;
+
 import java.lang.ref.WeakReference;
 
 /**
- * Created by Administrator on 2016/12/18.
+ * @Date 创建时间: 2017/1/16
+ * @Author: Administrator
+ * @Description:
+ * @Version
  */
 
-public class BasePresenter<T> implements LoadDataView{
+public class BasePresenter<T> implements IPresenter{
 
-    public Reference<T> viewRef;
+    private WeakReference<T> mWeakReference;
 
     public void attachView(T view){
-        viewRef=new WeakReference<T>(view);
+        mWeakReference=new WeakReference<T>(view);
     }
 
-    public boolean isViewAttached(){
-        return viewRef!=null&&viewRef.get()!=null;
+    public boolean isAttached(){
+        return mWeakReference!=null&&mWeakReference.get()!=null;
     }
 
     public T getView(){
-        return viewRef.get();
+        return mWeakReference.get();
     }
 
     public void detachView(){
-        if(viewRef!=null){
-            viewRef.clear();
-            viewRef=null;
+        if(mWeakReference!=null) {
+            mWeakReference.clear();
+            mWeakReference=null;
         }
-    }
-
-    @Override
-    public void showLoadView() {
-
-    }
-
-    @Override
-    public void hideLoadView() {
-
-    }
-
-    @Override
-    public void showEmptyView() {
-
-    }
-
-    @Override
-    public void showErrorView() {
-
-    }
-
-    @Override
-    public void showNetWorkView() {
-
     }
 }

@@ -1,7 +1,9 @@
 package com.fishwithcat.rxjavamvp.ui;
 
-import com.fishwithcat.rxjavamvp.base.LoadDataView;
-import com.fishwithcat.rxjavamvp.model.GoodDetailEntity;
+import com.fishwithcat.rxjavamvp.bean.GoodDetailEntity;
+import com.fishwithcat.rxjavamvp.bean.GoodEntity;
+
+import java.util.List;
 
 /**
  * Created by Administrator on 2016/12/18.
@@ -9,6 +11,12 @@ import com.fishwithcat.rxjavamvp.model.GoodDetailEntity;
 
 public interface IMainView {
 
-    public void showGoodDetail(GoodDetailEntity goodDetail);
+    void showLoading();
+
+    void showGoodDetail(GoodDetailEntity goodDetail);
+
+    void showGood(List<GoodEntity> goodList);
+
+    void hideLoading();
 
 }

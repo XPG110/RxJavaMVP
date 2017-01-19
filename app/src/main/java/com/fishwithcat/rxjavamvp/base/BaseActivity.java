@@ -2,16 +2,18 @@ package com.fishwithcat.rxjavamvp.base;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 
 /**
- * Created by Administrator on 2016/12/18.
+ * @Date 创建时间: 2017/1/16
+ * @Author: Administrator
+ * @Description:
+ * @Version
  */
 
-public abstract class BaseActivity <V,T extends BasePresenter<V>>extends Activity {
+public abstract class BaseActivity<V,T extends BasePresenter<V>> extends Activity{
 
     protected T mPresenter;
-
-    public abstract T createPresenter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,9 +22,12 @@ public abstract class BaseActivity <V,T extends BasePresenter<V>>extends Activit
         mPresenter.attachView((V) this);
     }
 
+    public abstract T createPresenter();
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
         mPresenter.detachView();
     }
+
 }
